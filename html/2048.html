@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+  <title>My sample game 2048</title>
+  <link href="2048.css" rel="stylesheet" type="text/css" />
+</head> 
+
+<body>
+<div id="main">
+	<div id="header">
+        <div id="header_top">Хедер верхний</div>
+        <div id="header_center">Хедер центральный</div>
+        <div id="header_menu">Score {{score}}</div>
+    </div>	
+	<div id="content">
+		<div id=leftcol>
+			<table border="1" bordercolor=#FFF align="center" height="300px" width="300px">
+				<tr>
+					<td  id="cell" bgcolor="#{{AAcolor}}">
+						{{AA}}
+					</td>
+					<td id="cell" bgcolor="#{{ABcolor}}">
+						{{AB}}
+					</td>
+					<td id="cell" bgcolor="#{{ACcolor}}">
+						{{AC}}
+					</td>
+					<td id="cell" bgcolor="#{{ADcolor}}">
+						{{AD}}
+					</td>
+					<td id="cell" bgcolor="#{{AEcolor}}">
+						{{AE}}
+					</td>
+				</tr>
+				<tr>
+					<td id="cell" bgcolor="#{{BAcolor}}">
+						{{BA}}
+					</td>
+					<td id="cell" bgcolor="#{{BBcolor}}">
+						{{BB}}
+					</td>
+					<td id="cell" bgcolor="#{{BCcolor}}">
+						{{BC}}
+					</td>
+					<td id="cell" bgcolor="#{{BDcolor}}">
+						{{BD}}
+					</td>
+					<td id="cell" bgcolor="#{{BEcolor}}">
+						{{BE}}
+					</td>
+				</tr>
+				<tr>
+					<td id="cell" bgcolor="#{{CAcolor}}">
+						{{CA}}
+					</td>
+					<td id="cell" bgcolor="#{{CBcolor}}">
+						{{CB}}
+					</td>
+					<td id="cell" bgcolor="#{{CCcolor}}">
+						{{CC}}
+					</td>
+					<td id="cell" bgcolor="#{{CDcolor}}">
+						{{CD}}
+					</td>
+					<td id="cell" bgcolor="#{{CEcolor}}">
+						{{CE}}
+					</td>
+				</tr>
+				<tr>
+					<td id="cell" bgcolor="#{{DAcolor}}">
+						{{DA}}
+					</td>
+					<td id="cell" bgcolor="#{{DBcolor}}">
+						{{DB}}
+					</td>
+					<td id="cell" bgcolor="#{{DCcolor}}">
+						{{DC}}
+					</td>
+					<td id="cell" bgcolor="#{{DDcolor}}">
+						{{DD}}
+					</td>
+					<td id="cell" bgcolor="#{{DEcolor}}">
+						{{DE}}
+					</td>
+				</tr>
+				<tr>
+					<td id="cell" bgcolor="#{{EAcolor}}">
+						{{EA}}
+					</td>
+					<td id="cell" bgcolor="#{{EBcolor}}">
+						{{EB}}
+					</td>
+					<td id="cell" bgcolor="#{{ECcolor}}">
+						{{EC}}
+					</td>
+					<td id="cell" bgcolor="#{{EDcolor}}">
+						{{ED}}
+					</td>
+					<td id="cell" bgcolor="#{{EEcolor}}">
+						{{EE}}
+					</td>
+				</tr>
+			</table>
+			{{ERROR}}
+		</div>
+		<div id=rightcol>
+			<form action="index.php" method='post' >
+				<p><input type='submit' name='DIRECTION' value='up'> <br></p>
+				<p><input type='submit' name='DIRECTION' value='left'> <br></p>
+				<p><input type='submit' name='DIRECTION' value='right'> <br></p>
+				<p><input type='submit' name='DIRECTION' value='down'> <br></p>
+				<p><input type='submit' name='NEW_GAME' value='new game'> <br></p>
+			</form>
+		</div>
+		
+	</div>
+	
+	
+	<div id="footer">Футер</div>
+</div>
+</body>
+
+</html>
