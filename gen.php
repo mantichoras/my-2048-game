@@ -10,28 +10,32 @@ function random_base_twoo()
 }
 
 //выбирает случайным образом ячейку из множества пустых
-function random_free_position($sto)
+/**
+ * @param Board $board
+ *
+ * @return Cell|null
+ */
+function random_empty_cell(Board $board)
 {
-	$empt = count_empty($sto);
-	if($empt==null){
-		return "full";
+	$emptyCells = get_empty_cells($board);
+	if(false == empty($emptyCells)){
+		$randomIndex = mt_rand(0, (count($emptyCells)-1));
+
+		return $emptyCells[$randomIndex];
 	}else{
-		$x_y = $empt[mt_rand(0, (count($empt)-1))];
-		return $x_y;
+		return null;
 	}
 }
 
 /* вставляет значение сгенерированное методом random_base_twoo 
 в ячейку выбранную методом random_free_position */
-function input_rand_number_in_rand_position($sto)
+function input_rand_number_in_rand_position(Board $board)
 {
-	$i_k=random_free_position($sto);
-	if($i_k == 'full'){
-		return $sto;
-	}else{
-		$i=$i_k[0];
-		$k=$i_k[1];
-		$sto[$i][$k]= random_base_twoo();
-		return $sto;
+	if($cell = random_empty_cell($board)){
+		$cell->setV(random_base_twoo());
+
+		return true;
+	} else {
+		return false;
 	}
 }
