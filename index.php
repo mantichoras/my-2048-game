@@ -44,7 +44,7 @@ if (isset($_SESSION["store"])&&isset($_POST['DIRECTION'])){
 			$after_gen_store = $second_move_store;
 		}
 //Проверка есть ли пустые ячейки в массиве и есть ли одинаковые значения в рядомстоящих ячейках
-		if((count_empty($after_gen_store)==null)&&(check_same_neighbor($after_gen_store) == "no way")){
+		if((count(get_empty_cells($after_gen_store)) == 0)&&(check_same_neighbor($after_gen_store) == "no way")){
 	//Записываем значения в сессию
 			$_SESSION["score"] = $aftersumm_score;
 			$_SESSION["store"] = $after_gen_store;
@@ -63,19 +63,23 @@ if (isset($_SESSION["store"])&&isset($_POST['DIRECTION'])){
 //Устанавливаем нулевое значение колличества очков
 	$score = 0;
 //Устанавливаем пустой массив
-	$store = [
-	["", "", "", "", ""],
-	["", "", "", "", ""],
-	["", "", "", "", ""],
-	["", "", "", "", ""],
-	["", "", "", "", ""],
-	];
+//	$store = [
+//	["", "", "", "", ""],
+//	["", "", "", "", ""],
+//	["", "", "", "", ""],
+//	["", "", "", "", ""],
+//	["", "", "", "", ""],
+//	];
+	$board = Board::create();
+
 //Генерируем первое значение и записываем его в пустую ячейку выбранную случайным образом
-	$first_gen_store = input_rand_number_in_rand_position($store);
+	input_rand_number_in_rand_position($board);
+
 //Генерируем второе значение и записываем его в пустую ячейку выбранную случайным образом
-	$second_gen_store = input_rand_number_in_rand_position($first_gen_store);
+	input_rand_number_in_rand_position($board);
+
 //Отправляем значения в сессию
-	$_SESSION["store"] = $second_gen_store;
+	$_SESSION["store"] = $board;
 	$_SESSION["score"] = $score;
 //Записываем значения и передаем их шаблонизатору
 	$error='';
